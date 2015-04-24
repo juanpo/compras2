@@ -1,0 +1,7 @@
+fieldsets = [
+	    ("Codigo", {"fields": ["codigo"]}),
+		("Descripcion", {"fields": ["descripcion"]}),
+	]
+    list_display = ("codigo", "descripcion", "esta_pedido")
+    search_fields = ["codigo", "descripcion"]
+    list_per_page = 700

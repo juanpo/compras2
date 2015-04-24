@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+{% if productos %}
+    <ul>
+    {% for producto in productos %}
+        <li><a href="/productos/{{ producto.codigo }}/">{{ producto.descripcion }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay productos.</p>
+{% endif %}

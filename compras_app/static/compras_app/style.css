@@ -1,0 +1,32 @@
+#codigo_head {
+	width: 5%;
+	padding-left: 16px;
+	padding-right: 0;
+}
+
+h2 {
+	margin-left: 10px;
+	font-family: arial;
+	font-size: 25px;
+}
+
+.table.table-bordered {
+	margin-bottom: 0;
+}
+
+.btn.btn-default.dropdown-toggle {
+	margin-bottom: 20px;
+	margin-left: 10px;
+	margin-top: 20px;
+}
+
+#codigo {
+	padding-left: 16px;
+	padding-right: 0;
+}
+
+.page-header {
+	padding-left: 10px;
+}
+
+

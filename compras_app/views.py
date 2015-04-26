@@ -6,10 +6,26 @@ from django.views import generic
 # Create your views here.
 
 
-class IndexView(generic.ListView):
+class ProductosView(generic.ListView):
+    model = Producto
     template_name = 'compras_app/index.html'
     context_object_name = 'productos'
-    queryset = Producto.objects.order_by("descripcion")
+    #queryset = Producto.objects.order_by("descripcion")
+
+class DescripcionAscView(generic.ListView):
+	template_name = "compras_app/productos.html"
+	context_object_name = "productos"
+	queryset = Producto.objects.order_by("descripcion")
+
+class DescripcionDescView(generic.ListView):
+	template_name = "compras_app/productos.html"
+	context_object_name = "productos"
+	queryset = Producto.objects.order_by("-descripcion")
+
+class CodigoDescView(generic.ListView):
+	template_name = "compras_app/productos.html"
+	context_object_name = "productos"
+	queryset = Producto.objects.order_by("-codigo")
 
 
 def detail(request, codigo):

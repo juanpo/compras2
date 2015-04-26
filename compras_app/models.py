@@ -25,6 +25,7 @@ class Producto(models.Model):
     cantidad = models.IntegerField(default=0)
     orden = models.ForeignKey(Orden, null=True)
 
+
     def __str__(self):
         return self.descripcion
 

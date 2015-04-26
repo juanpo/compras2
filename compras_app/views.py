@@ -9,7 +9,7 @@ from django.views import generic
 class IndexView(generic.ListView):
     template_name = 'compras_app/index.html'
     context_object_name = 'productos'
-    queryset = Producto.objects.all()
+    queryset = Producto.objects.order_by("descripcion")
 
 
 def detail(request, codigo):

@@ -82,7 +82,18 @@
   	{% else %}
   	    <p>No hay productos.</p>
   	{% endif %}
-
+    {% if is_paginated %}
+      <nav>
+        <ul class="pager">
+          {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+          {% endif %}
+          {% if page_obj.has_next %}  
+            <li><a href="?page={{ page_obj.next_page_number }}">Next</a></li>
+          {% endif %}  
+        </ul>
+      </nav>
+    {% endif %}
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

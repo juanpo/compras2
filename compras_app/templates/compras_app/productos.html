@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 
     {% load staticfiles %}
+    {% load add_query %}
 
       <link rel="stylesheet" type="text/css" href="{% static 'compras_app/style.css' %}" />
 
@@ -55,13 +56,21 @@
     </div> 
     <div class="btn-group">
       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-        Ordenar <span class="caret"></span>
+        Ordenar por: <span class="caret"></span>
       </button>
       <ul class="dropdown-menu" role="menu">
-        <li><a href="?order_by=descripcion&ordering=asc">Descripcion: ascendente</a></li>
-        <li><a href="?order_by=descripcion&ordering=desc">Descripcion: descendente</a></li>
-        <li><a href="?order_by=codigo&ordering=asc">Codigo: ascendente</a></li>
-        <li><a href="?order_by=codigo&ordering=desc">Codigo: descendente</a></li>
+        <li><a href="?{% url_replace request 'order_by' "descripcion"%}">Descripcion</a></li>
+        <li><a href="?{% url_replace request 'order_by' "codigo"%}">Codigo</a></li>
+      </ul>
+    </div>
+    </div> 
+    <div class="btn-group">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        En sentido: <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="?{% url_replace request 'ordering' "asc"%}">Ascendente</a></li>
+        <li><a href="?{% url_replace request 'ordering' "desc"%}">Descendente</a></li>
       </ul>
     </div>
   	{% if productos %}
@@ -86,10 +95,10 @@
       <nav>
         <ul class="pager">
           {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+            <li><a href="?{% url_replace request 'page' page_obj.previous_page_number %}">Previous</a></li>
           {% endif %}
           {% if page_obj.has_next %}  
-            <li><a href="?page={{ page_obj.next_page_number }}">Next</a></li>
+            <li><a href="?{% url_replace request 'page' page_obj.next_page_number %}">Next</a></li>
           {% endif %}  
         </ul>
       </nav>

@@ -4,7 +4,6 @@ from models import Producto
 from django.views import generic
 from django.views.generic.list import MultipleObjectMixin
 from braces.views import OrderableListMixin
-from compras_app.utils import get_query
 
 # Create your views here.
 

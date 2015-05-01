@@ -10,10 +10,6 @@ h2 {
 	font-size: 25px;
 }
 
-.table.table-bordered {
-	margin-bottom: 0;
-}
-
 .btn.btn-default.dropdown-toggle {
 	margin-bottom: 20px;
 	margin-left: 10px;
@@ -32,5 +28,11 @@ h2 {
 body {
 	margin-left: 10%;
 	margin-right: 10%;
+	margin-bottom: 10%;
 }
 
+form {
+	position: relative;
+	top: 12px;
+	right: 15px;
+}

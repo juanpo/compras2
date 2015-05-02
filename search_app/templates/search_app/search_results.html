@@ -53,6 +53,25 @@
 <!-- Single button -->
     <div class="page-header">
       <h1>PRODUCTOS</h1>
+    </div>
+    <div class="btn-group">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        Ordenar por: <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="?{% url_replace request 'order_by' "descripcion"%}">Descripcion</a></li>
+        <li><a href="?{% url_replace request 'order_by' "codigo"%}">Codigo</a></li>
+      </ul>
+    </div>
+    </div> 
+    <div class="btn-group">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        En sentido: <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="?{% url_replace request 'ordering' "asc"%}">Ascendente</a></li>
+        <li><a href="?{% url_replace request 'ordering' "desc"%}">Descendente</a></li>
+      </ul>
     </div> 
     <form class="navbar-form navbar-left" role="search" method="get" action="/search/">
       <div class="form-group">
@@ -61,7 +80,7 @@
       <button type="submit" class="btn btn-default">Submit</button>
     </form>
     {% if found_entries %}
-      <table class="table table-bordered" style="position: relative; top: 34px">
+      <table class="table table-bordered" style="position: relative;">
         <tr>
               <th id="codigo_head">Codigo</th>
               <th>Descripcion</th> 

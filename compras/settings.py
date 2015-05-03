@@ -38,7 +38,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     "compras_app",
     'csvimport.app.CSVImportConf',
-    "search_app"
 )
 
 MIDDLEWARE_CLASSES = (

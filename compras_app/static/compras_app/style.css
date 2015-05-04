@@ -44,7 +44,6 @@ form {
 }
 
 #pager_bottom {
-	position: absolute;
-	left: 1507px;
-	top: 2144px;
+	position: relative;
+	left: 660px;
 }

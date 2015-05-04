@@ -79,6 +79,18 @@
       </div>
       <button type="submit" class="btn btn-default">Submit</button>
     </form>
+    {% if is_paginated %}
+      <nav id="pager_top">
+        <ul class="pager">
+          {% if page_obj.has_previous %}
+            <li><a href="?{% url_replace request 'page' page_obj.previous_page_number %}">Previous</a></li>
+          {% endif %}
+          {% if page_obj.has_next %}  
+            <li><a href="?{% url_replace request 'page' page_obj.next_page_number %}">Next</a></li>
+          {% endif %}  
+        </ul>
+      </nav>
+    {% endif %}
     {% if found_entries %}
       <table class="table table-bordered" style="position: relative;">
         <tr>
@@ -98,7 +110,7 @@
         <p style="position: absolute; top: 255px">No hay resultados con esos criterios. Intente de nuevo.</p>
     {% endif %}
     {% if is_paginated %}
-      <nav>
+      <nav id="pager_bottom">
         <ul class="pager">
           {% if page_obj.has_previous %}
             <li><a href="?{% url_replace request 'page' page_obj.previous_page_number %}">Previous</a></li>

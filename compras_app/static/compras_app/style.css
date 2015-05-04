@@ -36,3 +36,15 @@ form {
 	top: 12px;
 	right: 15px;
 }
+
+#pager_top {
+	position:absolute;
+	left: 1507px;
+	top: 175px;
+}
+
+#pager_bottom {
+	position: absolute;
+	left: 1507px;
+	top: 2144px;
+}

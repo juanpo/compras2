@@ -12,7 +12,7 @@ class ProductosView(OrderableListMixin, ListView):
     model = Producto
     template_name = 'compras_app/productos.html'
     context_object_name = 'productos'
-    paginate_by = 100
+    paginate_by = 50
     orderable_columns = (u"codigo", u"descripcion",)
     orderable_columns_default = u"descripcion"
 
@@ -24,6 +24,8 @@ class SearchView(ListView):
 
     def get_queryset(self):
         found_entries = ""
+        query_string = ""
+        entry_query = ""
         queryset = super(SearchView, self).get_queryset()
 
         if ('q' in self.request.GET) and self.request.GET['q'].strip():
@@ -32,8 +34,8 @@ class SearchView(ListView):
             entry_query = get_query(query_string, ['descripcion', 'codigo'])
             found_entries = Producto.objects.filter(entry_query).order_by("descripcion")
 
-        if ("ordering" in self.request.GET) and ("order_by" in self.request.GET):
-        #ya estando los dos, se desarrolla la logica.
+        if ("ordering" in self.request.GET) and ("order_by" in self.request.GET) and self.request.GET["q"] != "":
+            #ya estando los dos, se desarrolla la logica.
             campo = self.request.GET["order_by"]
             sentido = self.request.GET["ordering"]
             #se le asigna el valor a cada una

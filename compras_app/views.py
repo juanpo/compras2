@@ -4,6 +4,7 @@ from models import Producto
 from django.views.generic import ListView
 from braces.views import OrderableListMixin
 from compras_app.utils import get_query
+from compras_app.forms import CrearForm
 
 # Create your views here.
 
@@ -52,3 +53,31 @@ class SearchView(ListView):
 def detail(request, codigo):
     descripcion = get_object_or_404(Producto, codigo = codigo)
     return render(request, "compras_app/detail.html", {"codigo": codigo, "descripcion": descripcion})
+
+def crear(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = CrearForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            codigo = form.cleaned_data['codigo']
+            descripcion = form.cleaned_data["descripcion"]
+            producto = Producto.objects.filter(codigo=codigo)
+
+            if producto:
+                form.add_error("codigo","Este codigo ya existe")
+            else:
+                return HttpResponse("no existe")
+
+
+
+
+            # redirect to a new URL:
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = CrearForm()
+
+    return render(request, 'compras_app/crear.html', {'form': form})
+

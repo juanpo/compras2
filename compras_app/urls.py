@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^$', views.ProductosView.as_view(), name='productos'),
     url(r'^(?P<codigo>[A-Z0-9]+)/$', views.detail, name='detail'),
     url(r'^search$', views.SearchView.as_view(), name='search'),
-]
+    url(r'^crear/$', views.crear, name='crear'),
+    ]

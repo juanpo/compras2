@@ -31,11 +31,12 @@ body {
 	margin-bottom: 10%;
 }
 
-form {
+.navbar-form.navbar-left{
 	position: relative;
 	top: 12px;
 	right: 15px;
 }
+
 
 #pager_top {
 	position:absolute;
@@ -46,4 +47,23 @@ form {
 #pager_bottom {
 	position: relative;
 	left: 660px;
+}
+
+#button_crear {
+	width: 89px;
+	margin-bottom: 10px;
+}
+
+.crear_form {
+	width: 500px;
+}
+
+#crear_codigo {
+	width: 100px;
+}
+
+.errorlist {
+	color: red;
+	list-style-type: none;
+	padding-left: 0;
 }

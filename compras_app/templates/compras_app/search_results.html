@@ -79,6 +79,7 @@
       </div>
       <button type="submit" class="btn btn-default">Submit</button>
     </form>
+    <div><a id="button_crear" class="btn btn-default" href="/productos/crear/" role="button">Crear</a></div>
     {% if is_paginated %}
       <nav id="pager_top">
         <ul class="pager">
@@ -107,7 +108,9 @@
           </ul>
       </table>
     {% else %}
-        <p style="position: absolute; top: 255px">No hay resultados con esos criterios. Intente de nuevo.</p>
+        <div>
+          <p style="position: absolute; top: 300px">No hay resultados con esos criterios. Intente de nuevo.</p>
+        </div>  
     {% endif %}
     {% if is_paginated %}
       <nav id="pager_bottom">

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Crear</title>
+    <title>Success</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -51,42 +51,13 @@
     </nav>
 
 <!-- Single button -->
-    <div class="page-header">
-      <h1>CREAR PRODUCTO</h1>
+    <div class="success_producto">
+      El producto {{ objeto.codigo }} fue creado satisfactoriamente.
     </div>
-    <!-- <form class="crear_form" action="/productos/crear/" method="post">
-      {% csrf_token %}
-      {{ form.non_field_errors }}
-      <div class="fieldWrapper">
-          {{ form.codigo.errors }}
-          <label for="{{ form.codigo.id_for_label }}">Codigo</label>
-          {{ form.codigo }}
-      </div>
-      <div class="fieldWrapper">
-          {{ form.descripcion.errors }}
-          <label for="{{ form.descripcion.id_for_label }}">Descripcion</label>
-          {{ form.descripcion }}
-      </div> 
-      <input type="submit" value="Submit" />
-    </form> -->
-  	<form class="crear_form" method="post">
-      {% csrf_token %}
-      <div class="form-group">
-         <div>
-          <strong>{{ form.codigo.errors }}</strong>
-         </div> 
-        <label for="exampleInputEmail1">Codigo</label>
-        <input id="crear_codigo" type="text" class="form-control" name="codigo">
-      </div>
-      <div class="form-group">
-        <strong>{{ form.descripcion.errors }}</strong>
-        <label for="exampleInputPassword1">Descripcion</label>
-        <input type="text" class="form-control" name="descripcion">
-      </div>
-      <div>
-        <button type="submit" class="btn btn-default">Crear</button>
-      </div>  
-    </form> 
+    <div class="btn_success_producto">
+      <a class="btn btn-default" href="/productos/crear" role="button">Crear otro</a>
+      <a class="btn btn-default" href="/productos/" role="button">Volver a Productos</a>
+    </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

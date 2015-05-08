@@ -69,7 +69,9 @@ def crear(request):
             if producto:
                 form.add_error("codigo","Este codigo ya existe")
             else:
-                return HttpResponse("no existe")
+                objeto = Producto(codigo=codigo, descripcion=descripcion)
+                objeto.save()
+                return render(request, "compras_app/success.html", {"objeto": objeto})
 
 
 

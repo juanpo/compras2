@@ -54,21 +54,6 @@
     <div class="page-header">
       <h1>CREAR PRODUCTO</h1>
     </div>
-    <!-- <form class="crear_form" action="/productos/crear/" method="post">
-      {% csrf_token %}
-      {{ form.non_field_errors }}
-      <div class="fieldWrapper">
-          {{ form.codigo.errors }}
-          <label for="{{ form.codigo.id_for_label }}">Codigo</label>
-          {{ form.codigo }}
-      </div>
-      <div class="fieldWrapper">
-          {{ form.descripcion.errors }}
-          <label for="{{ form.descripcion.id_for_label }}">Descripcion</label>
-          {{ form.descripcion }}
-      </div> 
-      <input type="submit" value="Submit" />
-    </form> -->
   	<form class="crear_form" method="post">
       {% csrf_token %}
       <div class="form-group">
@@ -84,7 +69,7 @@
         <input type="text" class="form-control" name="descripcion">
       </div>
       <div>
-        <button type="submit" class="btn btn-default">Crear</button>
+        <button id="btn_crear_form" type="submit" class="btn btn-default">Crear</button>
       </div>  
     </form> 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

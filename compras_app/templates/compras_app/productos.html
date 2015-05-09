@@ -79,7 +79,7 @@
       </div>
       <button type="submit" class="btn btn-default">Submit</button>
     </form>
-    <div><a id="button_crear" class="btn btn-default" href="/productos/crear/" role="button">Crear</a></div>
+    <div><a id="btn_crear_productos" class="btn btn-default" href="/productos/crear/" role="button">Crear</a></div>
     {% if is_paginated %}
       <nav id="pager_top">
         <ul class="pager">
@@ -93,20 +93,33 @@
       </nav>
     {% endif %}
   	{% if productos %}
-  		<table class="table table-bordered">
-        <tr>
-              <th id="codigo_head">Codigo</th>
-              <th>Descripcion</th> 
-        </tr>    
-  		    <ul>
-  		    {% for producto in productos %}
-  		        <tr>
-  		        	<td id="codigo"><a href="/productos/{{ producto.codigo }}/">{{ producto.codigo }}</a></td>
-  		        	<td class="descripcion"> {{ producto.descripcion }} </td>
-  		        </tr>
-  		    {% endfor %}
-  		    </ul>
-  		</table>
+      {% for message in messages %}
+          {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            <div class="producto_borrado">{{ message }}</div>
+          {% endif %}
+      {% endfor %}
+      <form method="get" action="borrar/">
+        <input class="btn btn-default" type="submit" value="Borrar">
+    		<table class="table table-bordered">
+          <tr>
+                <th id="codigo_head">Codigo</th>
+                <th>Descripcion</th> 
+          </tr>    
+    		    <ul>
+    		    {% for producto in productos %}
+    		        <tr>
+    		        	<td id="codigo">
+                    <label>
+                      <input type="radio" name="codigo" id="blankRadio1" value={{ producto.codigo }} aria-label="...">
+                    </label>
+                    {{ producto.codigo }}
+                  </td>
+    		        	<td class="descripcion"> {{ producto.descripcion }} </td>
+    		        </tr>
+    		    {% endfor %}
+    		    </ul>
+    		</table>
+      </form>  
   	{% else %}
   	    <p>No hay productos.</p>
   	{% endif %}

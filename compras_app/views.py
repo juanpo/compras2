@@ -5,6 +5,8 @@ from django.views.generic import ListView
 from braces.views import OrderableListMixin
 from compras_app.utils import get_query
 from compras_app.forms import CrearForm
+from django.views.generic.edit import DeleteView
+from django.contrib import messages
 
 # Create your views here.
 
@@ -50,6 +52,18 @@ class SearchView(ListView):
         queryset = found_entries
         return queryset
 
+class BorrarProducto(DeleteView):
+    model = Producto
+    success_url = "/productos/"
+    success_message = "El producto fue borrado satisfactoriamente."
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, self.success_message)
+        return super(BorrarProducto, self).delete(request, *args, **kwargs)
+
+    def get_object(self):
+        return get_object_or_404(Producto, pk=Producto.objects.filter(codigo=self.request.GET["codigo"]))
+
 def detail(request, codigo):
     descripcion = get_object_or_404(Producto, codigo = codigo)
     return render(request, "compras_app/detail.html", {"codigo": codigo, "descripcion": descripcion})
@@ -82,4 +96,5 @@ def crear(request):
         form = CrearForm()
 
     return render(request, 'compras_app/crear.html', {'form': form})
+
 

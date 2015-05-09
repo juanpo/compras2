@@ -49,17 +49,24 @@ body {
 	left: 660px;
 }
 
-#button_crear {
+#btn_crear_productos {
 	width: 89px;
 	margin-bottom: 10px;
 }
 
 .crear_form {
 	width: 500px;
+	position: absolute;
+	left: 677px
 }
 
 #crear_codigo {
 	width: 100px;
+}
+
+#btn_crear_form {
+	position: relative;
+	left: 219px;
 }
 
 .errorlist {
@@ -69,15 +76,33 @@ body {
 }
 
 .success_producto {
-	text-align: center;
-	font-size: 20px;
-	position: relative;
-	top: 50px;
+	position: absolute;
+	top: 250px;
+	left: 713.5px;
 	
 }
 
 .btn_success_producto {
 	position: absolute;
-	top: 200px;
+	top: 360px;
 	left: 807px;
+}
+
+.producto_borrado {
+	font-size: 15px;
+	color: green;
+	margin-bottom: 5px;
+}
+
+.confirm {
+	position: absolute;
+	top: 250px;
+	left: 713.5px;
+
+}
+
+.btn_confirm {
+	position: relative;
+	left: 120px;
+	top: 10px;
 }

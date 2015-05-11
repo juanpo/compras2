@@ -29,7 +29,7 @@
   </head>
   <body>
     <nav class="navbar navbar-default">
-      <div class="container-fluid">
+      <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -51,7 +51,7 @@
     </nav>
 
 <!-- Single button -->
-    <div class="confirm">
+    <div id="recuadro_borrar_crear" class="container text-center">
       <form action="" method="post">{% csrf_token %}
           <p style="font-size: 20px;">¿Seguro que quieres borrar el siguiente producto?</p> 
           <p style="font-size:"><strong>Codigo:</strong> {{ object.codigo }}</p>

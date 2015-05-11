@@ -1,108 +1,53 @@
-#codigo_head {
-	width: 6%;
-	padding-left: 8px;
-	padding-right: 0;
-}
-
-h2 {
-	margin-left: 10px;
-	font-family: arial;
-	font-size: 25px;
-}
-
-.btn.btn-default.dropdown-toggle {
-	margin-bottom: 20px;
-	margin-left: 10px;
+div.container:nth-child(2) {
 	margin-top: 20px;
 }
 
-#codigo {
-	padding-left: 8px;
-	padding-right: 0px;
-}
-
-.page-header {
-	padding-left: 10px;
-}
-
-body {
-	margin-left: 10%;
-	margin-right: 10%;
-	margin-bottom: 10%;
-}
-
-.navbar-form.navbar-left{
-	position: relative;
-	top: 12px;
-	right: 15px;
+.navbar-form {
+	margin: 0 10px 0 0;
+	padding: 0;
 }
 
 
-#pager_top {
-	position:absolute;
-	left: 1507px;
-	top: 175px;
+/*boton en sentido*/div.btn-group:nth-child(3) > button:nth-child(1) {
+	margin-left: 6px;
 }
 
-#pager_bottom {
-	position: relative;
-	left: 660px;
-}
-
-#btn_crear_productos {
-	width: 89px;
-	margin-bottom: 10px;
-}
-
-.crear_form {
-	width: 500px;
-	position: absolute;
-	left: 677px
-}
-
-#crear_codigo {
+/*header codigo*/.table > tbody:nth-child(1) > tr:nth-child(1) > th:nth-child(1) {
 	width: 100px;
 }
 
-#btn_crear_form {
-	position: relative;
-	left: 219px;
+/*boton crear*/a.btn {
+	margin-top: 20px;
+	margin-bottom: 10px;
+	width: 100px;
 }
 
-.errorlist {
-	color: red;
-	list-style-type: none;
-	padding-left: 0;
+/*boton borrar*/input.btn {
+	margin-top: 20px;
+	margin-left: 6px;
+	margin-bottom: 10px;
 }
 
-.success_producto {
-	position: absolute;
-	top: 250px;
-	left: 713.5px;
-	
+/*crear productos*/.navbar {
+	margin-bottom: 0;
 }
 
-.btn_success_producto {
-	position: absolute;
-	top: 360px;
-	left: 807px;
+/*crear productos*/div.container:nth-child(2) {
+	margin-top: 0;
 }
 
-.producto_borrado {
-	font-size: 15px;
-	color: green;
-	margin-bottom: 5px;
+/*crear productos*/.page-header {
+	margin-top: 0;
 }
 
-.confirm {
-	position: absolute;
-	top: 250px;
-	left: 713.5px;
-
+/*crear productos*/div.container:nth-child(2) > form:nth-child(2) {
+	width: 25%;
 }
 
-.btn_confirm {
-	position: relative;
-	left: 120px;
-	top: 10px;
+/*success crear producto*/a.btn:nth-child(2) {
+	width: auto;
+}
+
+#recuadro_borrar_crear {
+	margin-top: 130px;
 }

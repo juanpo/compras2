@@ -29,7 +29,7 @@
   </head>
   <body>
     <nav class="navbar navbar-default">
-      <div class="container-fluid">
+      <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -51,15 +51,17 @@
     </nav>
 
 <!-- Single button -->
-    <div class="success_producto">
-      <p style="font-size: 20px;">El producto fue creado satisfactoriamente.</p>
-      <p><strong>Codigo:</strong> {{ objeto.codigo }} </p>
-      <p><strong>Descripcion:</strong> {{ objeto.descripcion }} </p>
-    </div>
-    <div class="btn_success_producto">
-      <a class="btn btn-default" href="/productos/crear" role="button">Crear otro</a>
-      <a class="btn btn-default" href="/productos/" role="button">Volver a Productos</a>
-    </div>
+    <div id="recuadro_borrar_crear"class="container text-center">  
+      <div>
+        <p style="font-size: 20px;">El producto fue creado satisfactoriamente.</p>
+        <p><strong>Codigo:</strong> {{ objeto.codigo }} </p>
+        <p><strong>Descripcion:</strong> {{ objeto.descripcion }} </p>
+      </div>
+      <div class="btn_success_producto">
+        <a class="btn btn-default" href="/productos/crear" role="button">Crear otro</a>
+        <a class="btn btn-default" href="/productos/" role="button">Volver a Productos</a>
+      </div>
+    </div>  
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

@@ -29,7 +29,7 @@
   </head>
   <body>
     <nav class="navbar navbar-default">
-      <div class="container-fluid">
+      <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -51,27 +51,29 @@
     </nav>
 
 <!-- Single button -->
-    <div class="page-header">
-      <h1>CREAR PRODUCTO</h1>
-    </div>
-  	<form class="crear_form" method="post">
-      {% csrf_token %}
-      <div class="form-group">
-         <div>
-          <strong>{{ form.codigo.errors }}</strong>
-         </div> 
-        <label for="exampleInputEmail1">Codigo</label>
-        <input id="crear_codigo" type="text" class="form-control" name="codigo">
+    <div class="container">
+      <div class="page-header">
+        <h1>CREAR PRODUCTO</h1>
       </div>
-      <div class="form-group">
-        <strong>{{ form.descripcion.errors }}</strong>
-        <label for="exampleInputPassword1">Descripcion</label>
-        <input type="text" class="form-control" name="descripcion">
-      </div>
-      <div>
-        <button id="btn_crear_form" type="submit" class="btn btn-default">Crear</button>
-      </div>  
-    </form> 
+    	<form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+           <div>
+            <strong>{{ form.codigo.errors }}</strong>
+           </div> 
+          <label for="exampleInputEmail1">Codigo</label>
+          <input id="crear_codigo" type="text" class="form-control" name="codigo">
+        </div>
+        <div class="form-group">
+          <strong>{{ form.descripcion.errors }}</strong>
+          <label for="exampleInputPassword1">Descripcion</label>
+          <input type="text" class="form-control" name="descripcion">
+        </div>
+        <div>
+          <button type="submit" class="btn btn-default">Crear</button>
+        </div>  
+      </form>
+    </div>   
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

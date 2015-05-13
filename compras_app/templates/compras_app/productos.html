@@ -60,7 +60,7 @@
             <input type="text" class="form-control" placeholder="Buscar" name="q">
           </div>
           <button type="submit" class="btn btn-default">Buscar</button>
-        </form> 
+      </form> 
       <div class="btn-group">
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
           Ordenar por: <span class="caret"></span>
@@ -78,11 +78,9 @@
           <li><a href="?{% url_replace request 'ordering' "asc"%}">Ascendente</a></li>
           <li><a href="?{% url_replace request 'ordering' "desc"%}">Descendente</a></li>
         </ul>
-      </div>  
+      </div><br>  
     	{% if productos %}
-        <form method="get" action="borrar/">
               <a class="btn btn-default" href="/productos/crear/" role="button">Crear</a>
-              <input class="btn btn-default" type="submit" value="Borrar">
               {% for message in messages %}
                 {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
                   <span style="color: green; font-size: 15px; position: relative; top: 10px;">{{ message }}</span>
@@ -102,7 +100,7 @@
               </nav>
             </div>  
           {% endif %}     
-      		<table class="table table-bordered">
+      		<table class="table table-striped">
             <tr>
                   <th class="text-center">Codigo</th>
                   <th>Descripcion</th> 
@@ -110,11 +108,8 @@
       		    <ul>
       		    {% for producto in productos %}
       		        <tr>
-      		        	<td style="  border-bottom-width: 0px; padding: 6px 0px 1px 10px; border-right-width: 0px;">
-                      <label>
-                        <input type="radio" name="codigo" id="blankRadio1" value={{ producto.codigo }} aria-label="...">
-                      </label>
-                      {{ producto.codigo }}
+      		        	<td class="text-center">
+                      <a href="{{ producto.codigo }}/">{{ producto.codigo }}
                     </td>
       		        	<td> 
                       {{ producto.descripcion }} 
@@ -122,8 +117,7 @@
       		        </tr>
       		    {% endfor %}
       		    </ul>
-      		</table>
-        </form>  
+      		</table>  
     	{% else %}
     	    <p>No hay productos.</p>
     	{% endif %}

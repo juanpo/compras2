@@ -24,8 +24,8 @@ div.container:nth-child(2) {
 
 /*boton borrar*/input.btn {
 	margin-top: 20px;
-	margin-left: 6px;
 	margin-bottom: 10px;
+	margin-right: 6px;
 }
 
 /*crear productos*/.navbar {
@@ -51,3 +51,9 @@ div.container:nth-child(2) {
 #recuadro_borrar_crear {
 	margin-top: 130px;
 }
+
+#recuadro_editar {
+	width: 25%;
+	margin-top: 130px;
+}
+

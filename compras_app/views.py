@@ -1,12 +1,13 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect, Http404
 from models import Producto
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from braces.views import OrderableListMixin
 from compras_app.utils import get_query
 from compras_app.forms import CrearForm
-from django.views.generic.edit import DeleteView
+from django.views.generic.edit import DeleteView, UpdateView
 from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 
 # Create your views here.
 
@@ -62,12 +63,25 @@ class BorrarProducto(DeleteView):
         return super(BorrarProducto, self).delete(request, *args, **kwargs)
 
     def get_object(self):
-        return get_object_or_404(Producto, pk=Producto.objects.filter(codigo=self.request.GET["codigo"]))
+        return get_object_or_404(Producto, pk=Producto.objects.filter(codigo=self.kwargs["codigo"]))
 
-def detail(request, codigo):
-    descripcion = get_object_or_404(Producto, codigo = codigo)
-    return render(request, "compras_app/detail.html", {"codigo": codigo, "descripcion": descripcion})
+class DetalleProducto(DetailView):
+    model = Producto
+    template_name = "compras_app/detail.html"
 
+    def get_object(self):
+        return get_object_or_404(Producto, pk=Producto.objects.filter(codigo=self.kwargs["codigo"]))
+
+class EditarProducto(SuccessMessageMixin, UpdateView):
+    model = Producto
+    fields = ['descripcion']
+    template_name = "compras_app/producto_update_form.html"
+    success_url = "/productos/"
+    success_message = "El producto fue editado satisfactoriamente."   
+
+    def get_object(self):
+        return get_object_or_404(Producto, pk=Producto.objects.filter(codigo=self.kwargs["codigo"]))
+        
 def crear(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
@@ -97,4 +111,15 @@ def crear(request):
 
     return render(request, 'compras_app/crear.html', {'form': form})
 
+def handle(request, codigo):
+    if request.method == "POST":
+
+        if "borrar" in request.POST:
+            return HttpResponseRedirect("/productos/"+codigo+"/borrar")
+
+        if "editar" in request.POST:
+            return HttpResponseRedirect("/productos/"+codigo+"/editar")
+
+    else:
+        raise Http404("Esta pagina no existe.")        
 

@@ -78,11 +78,9 @@
           <li><a href="?{% url_replace request 'ordering' "asc"%}">Ascendente</a></li>
           <li><a href="?{% url_replace request 'ordering' "desc"%}">Descendente</a></li>
         </ul>
-      </div>  
+      </div><br>  
       {% if found_entries %}
-        <form method="get" action="borrar/">
           <a class="btn btn-default" href="/productos/crear/" role="button">Crear</a>
-          <input class="btn btn-default" type="submit" value="Borrar">
           {% if is_paginated %}
             <div class="pull-right">
               <nav>
@@ -97,19 +95,16 @@
               </nav>
             </div>  
           {% endif %}     
-          <table class="table table-bordered table-responsive">
+          <table class="table table-striped table-responsive">
             <tr>
-                  <th>Codigo</th>
+                  <th class="text-center">Codigo</th>
                   <th>Descripcion</th> 
             </tr>    
               <ul>
               {% for producto in found_entries %}
                   <tr>
-                    <td style="  border-bottom-width: 0px; padding: 6px 0px 1px 10px; border-right-width: 0px;">
-                      <label>
-                        <input type="radio" name="codigo" id="blankRadio1" value={{ producto.codigo }} aria-label="...">
-                      </label>
-                      {{ producto.codigo }}
+                    <td class="text-center">
+                      <a href="{{ producto.codigo }}/">{{ producto.codigo }}
                     </td>
                     <td style="padding-top: 7.5px; padding-bottom: 7.5px;"> 
                       {{ producto.descripcion }} 
@@ -117,8 +112,7 @@
                   </tr>
               {% endfor %}
               </ul>
-          </table>
-        </form>  
+          </table>  
       {% else %}
         <div style="color: red; font-size: 18px; margin-top: 20px;">
           <p>No se han encontrado productos con esos criterios. Intente de nuevo.</p>

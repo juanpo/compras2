@@ -55,6 +55,26 @@
       <div class="page-header">
         <h1>CREAR PRODUCTO</h1>
       </div>
+    </div>
+    <div class="container" id="recuadro_editar" style="margin-top: 30px;">
+      <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <strong>{{ form.codigo.errors }}</strong>
+          <label for="exampleInputEmail1">Codigo</label>
+          <input type="text" class="form-control" name="codigo">
+        </div>
+        <div class="form-group">
+          <strong>{{ form.descripcion.errors }}</strong>
+          <label for="exampleInputPassword1">Descripcion</label>
+          <input type="text" class="form-control" name="descripcion">
+        </div>
+        <div>
+          <button type="submit" class="btn btn-default">Crear</button>
+        </div>  
+      </form>
+    </div>   
+    <!-- <div class="container text-center" style="width: 25%;">  
     	<form method="post">
         {% csrf_token %}
         <div class="form-group">
@@ -73,7 +93,7 @@
           <button type="submit" class="btn btn-default">Crear</button>
         </div>  
       </form>
-    </div>   
+    </div>    -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

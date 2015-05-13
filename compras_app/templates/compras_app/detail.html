@@ -51,6 +51,11 @@
     </nav>
 
 <!-- Single button -->
+    <div class="container">
+      <div class="page-header">
+        <h1>{{ object.codigo }}</h1>
+      </div>
+    </div>
     <div id="recuadro_borrar_crear" class="container text-center">
       <form action="handle/" method="post">{% csrf_token %} 
           <p style="font-size:"><strong>Codigo:</strong> {{ object.codigo }}</p>

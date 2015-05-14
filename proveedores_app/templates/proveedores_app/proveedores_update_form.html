@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Confirmar</title>
+    <title>Editar</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -54,20 +54,26 @@
 <!-- Single button -->
     <div class="container">
       <div class="page-header">
-        <h1>CONFIRMACION</h1>
+        <h1>EDITAR PROVEEDOR</h1>
       </div>
     </div>
-    <div id="recuadro_borrar_crear" class="container text-center">
-      <form action="" method="post">{% csrf_token %}
-          <p style="font-size: 20px;">¿Seguro que quieres borrar el siguiente producto?</p> 
-          <p style="font-size:"><strong>Codigo:</strong> {{ object.codigo }}</p>
-          <p><strong>Descripcion:</strong> {{ object.descripcion }}</p>
-        <div class="btn_confirm"> 
-          <input class="btn btn-default" type="submit" value="Borrar">     
-          <a class="btn btn-default" href="/productos/" role="button">Volver a Productos</a>
+    <div class="container" id="recuadro_editar">
+    	<form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="exampleInputEmail1">Codigo</label>
+          <input type="text" class="form-control" name="codigo" value="{{ object.codigo }}" disabled>
+        </div>
+        <div class="form-group">
+          <strong>{{ form.descripcion.errors }}</strong>
+          <label for="exampleInputPassword1">Descripcion</label>
+          <input type="text" class="form-control" name="descripcion" value="{{ object.descripcion }}">
+        </div>
+        <div>
+          <button type="submit" class="btn btn-default">Guardar cambios</button>
         </div>  
       </form>
-    </div>
+    </div>   
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

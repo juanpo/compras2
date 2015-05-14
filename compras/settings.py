@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     "compras_app",
     'csvimport.app.CSVImportConf',
+    "proveedores_app"
 )
 
 MIDDLEWARE_CLASSES = (

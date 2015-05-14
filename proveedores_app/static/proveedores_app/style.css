@@ -1,0 +1,59 @@
+div.container:nth-child(2) {
+	margin-top: 20px;
+}
+
+.navbar-form {
+	margin: 0 10px 0 0;
+	padding: 0;
+}
+
+
+/*boton en sentido*/div.btn-group:nth-child(3) > button:nth-child(1) {
+	margin-left: 6px;
+}
+
+/*header codigo*/.table > tbody:nth-child(1) > tr:nth-child(1) > th:nth-child(1) {
+	width: 100px;
+}
+
+/*boton crear*/a.btn {
+	margin-top: 20px;
+	margin-bottom: 10px;
+	width: 100px;
+}
+
+/*boton borrar*/input.btn {
+	margin-top: 20px;
+	margin-bottom: 10px;
+	margin-right: 6px;
+}
+
+/*crear productos*/.navbar {
+	margin-bottom: 0;
+}
+
+/*crear productos*/div.container:nth-child(2) {
+	margin-top: 0;
+}
+
+/*crear productos*/.page-header {
+	margin-top: 0;
+}
+
+/*crear productos*/div.container:nth-child(2) > form:nth-child(2) {
+	width: 25%;
+}
+
+/*success crear producto*/a.btn:nth-child(2) {
+	width: auto;
+}
+
+#recuadro_borrar_crear {
+	margin-top: 30px;
+}
+
+#recuadro_editar {
+	width: 25%;
+	margin-top: 30px;
+}
+
